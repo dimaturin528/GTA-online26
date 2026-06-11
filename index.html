@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>GTA Online — Найди друга по платформе</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Шапка -->
+        <div class="hero">
+            <h1>🏙️ LS · FRIENDS</h1>
+            <div class="sub">
+                <span>🔫 Живые анкеты игроков | GTA Online</span>
+                <button class="btn btn-outline" id="refreshListBtn">🔄 Обновить список</button>
+            </div>
+        </div>
+
+        <!-- Панель фильтров -->
+        <div class="filters-panel">
+            <div class="filter-group">
+                <label>🔍 Поиск по нику</label>
+                <input type="text" id="filterName" placeholder="Игрок...">
+            </div>
+            <div class="filter-group">
+                <label>🎮 Платформа</label>
+                <select id="filterPlatform">
+                    <option value="all">Все</option>
+                    <option value="PC">💻 PC</option>
+                    <option value="PlayStation">🎮 PlayStation</option>
+                    <option value="Xbox">🕹️ Xbox</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>🏆 Роль / стиль</label>
+                <select id="filterRole">
+                    <option value="all">Любой</option>
+                    <option value="Новичок">🌱 Новичок</option>
+                    <option value="Опытный">⚙️ Опытный</option>
+                    <option value="Ветеран">🔥 Ветеран</option>
+                    <option value="Гонщик">🏎️ Гонщик</option>
+                    <option value="PVP">💥 PVP</option>
+                    <option value="Фармер">💰 Фармер</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>⭐ Подписка PS+/GamePass</label>
+                <select id="filterSubscription">
+                    <option value="all">Не важно</option>
+                    <option value="Есть подписка">✅ Есть подписка</option>
+                    <option value="Нет подписки">❌ Без подписки</option>
+                    <option value="Временная">⏳ Временная (пробный период)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Статистика -->
+        <div class="stats">
+            <span>👥 Найдено: <strong id="playersCount">0</strong></span>
+            <span>💬 Добавляй в друзья через Social Club / PSN / Xbox Live</span>
+        </div>
+
+        <!-- Сетка игроков -->
+        <div id="playersGrid" class="players-grid"></div>
+
+        <!-- Форма добавления анкеты -->
+        <div class="add-form" id="addFormSection">
+            <div class="form-title">📝 + Добавить свою анкету</div>
+            <div class="form-grid">
+                <div class="form-field"><input type="text" id="newName" placeholder="Ваш ник в GTA Online *"></div>
+                <div class="form-field">
+                    <select id="newPlatform">
+                        <option value="PC">💻 PC</option>
+                        <option value="PlayStation">🎮 PlayStation</option>
+                        <option value="Xbox">🕹️ Xbox</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <select id="newSubscription">
+                        <option value="Есть подписка">✅ Есть подписка (PS Plus / Game Pass)</option>
+                        <option value="Нет подписки">❌ Нет подписки</option>
+                        <option value="Временная">⏳ Временная / пробный период</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <select id="newRole">
+                        <option value="Новичок">🌱 Новичок</option>
+                        <option value="Опытный">⚙️ Опытный</option>
+                        <option value="Ветеран">🔥 Ветеран</option>
+                        <option value="Гонщик">🏎️ Гонщик</option>
+                        <option value="PVP">💥 PVP</option>
+                        <option value="Фармер">💰 Фермер</option>
+                    </select>
+                </div>
+                <div class="form-field"><input type="number" id="newLevel" placeholder="Уровень" value="50"></div>
+                <div class="form-field"><textarea id="newAbout" rows="1" placeholder="О себе, микрофон, любимые дела..."></textarea></div>
+                <div class="form-field"><input type="text" id="newTags" placeholder="Теги (через запятую): хили, гонки, хеист"></div>
+                <div class="form-field"><input type="text" id="newSocial" placeholder="Social Club / PSN / Xbox ID"></div>
+                <div><button class="btn btn-gold" id="submitPlayerBtn">✨ Опубликовать анкету</button></div>
+            </div>
+            <p class="form-hint">* Все данные сохраняются в браузере. Игроки с одного устройства видят общую базу.</p>
+        </div>
+
+        <footer>
+            ⚡ Игроки сами заполняют данные — вся информация в localStorage.<br>
+            🎮 Укажи наличие PS+ или Game Pass, чтобы другие знали, сможешь ли играть в онлайн!
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+              </html>
