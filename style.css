@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at 20% 30%, #0a0f1a, #03060c);
+    padding: 1.5rem;
+    min-height: 100vh;
+}
+
+.app-container {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* Шапка */
+.hero {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(20, 30, 45, 0.8));
+    backdrop-filter: blur(12px);
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 200, 100, 0.3);
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #FFD966, #FF9F4A);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.sub {
+    color: #b9d0f0;
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Кнопки */
+.btn {
+    border: none;
+    border-radius: 60px;
+    padding: 0.7rem 1.6rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-gold {
+    background: linear-gradient(95deg, #f5b042, #e67e22);
+    color: #121212;
+}
+
+.btn-gold:hover {
+    transform: scale(1.02);
+    background: linear-gradient(95deg, #ffbc5e, #f58e2e);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid #ffb347;
+    color: #ffd58c;
+}
+
+.btn-outline:hover {
+    background: #ffb34730;
+}
+
+/* Фильтры */
+.filters-panel {
+    background: rgba(10, 18, 28, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 1.8rem;
+    padding: 1.2rem 1.8rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.filter-group {
+    flex: 1;
+    min-width: 150px;
+}
+
+.filter-group label {
+    font-size: 0.7rem;
+    color: #ffdd99;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.filter-group input, .filter-group select {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 50px;
+    background: #0e1a24;
+    border: 1px solid #ffbe6e60;
+    color: white;
+}
+
+.stats {
+    color: #ffeaC0;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Сетка карточек */
+.players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.8rem;
+    margin-top: 1rem;
+}
+
+/* --- ОБЩАЯ КАРТОЧКА --- */
+.player-card {
+    border-radius: 1.6rem;
+    padding: 1.3rem;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ЦВЕТОВОЕ ОФОРМЛЕНИЕ ПО ПЛАТФОРМАМ */
+.player-card.pc {
+    background: linear-gradient(135deg, rgba(20, 40, 55, 0.95), rgba(10, 25, 35, 0.95));
+    border-left: 6px solid #3a86ff;
+    border-top: 1px solid #3a86ff80;
+}
+
+.player-card.playstation {
+    background: linear-gradient(135deg, rgba(0, 40, 70, 0.95), rgba(0, 20, 45, 0.95));
+    border-left: 6px solid #006fcd;
+    border-top: 1px solid #006fcd80;
+}
+
+.player-card.xbox {
+    background: linear-gradient(135deg, rgba(30, 55, 40, 0.95), rgba(15, 35, 25, 0.95));
+    border-left: 6px solid #107c10;
+    border-top: 1px solid #107c1080;
+}
+
+.player-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+/* Визуальный значок платформы (крупный фон) */
+.player-card::before {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 4rem;
+    opacity: 0.1;
+    pointer-events: none;
+    font-weight: bold;
+}
+
+.player-card.pc::before {
+    content: "💻";
+}
+.player-card.playstation::before {
+    content: "🎮";
+}
+.player-card.xbox::before {
+    content: "🕹️";
+}
+
+.card-header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.avatar {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(145deg, #2a5f6e, #123845);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffc857;
+    border: 2px solid #ffaa33;
+}
+
+.player-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff7e8;
+}
+
+.platform-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #00000080;
+    padding: 4px 12px;
+    border-radius: 40px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 6px;
+}
+
+/* Платформенные бейджи */
+.platform-badge.pc { color: #6ea8fe; border-left: 2px solid #3a86ff; background: #0a1a2a; }
+.platform-badge.playstation { color: #7ab3ff; border-left: 2px solid #006fcd; background: #001830; }
+.platform-badge.xbox { color: #7fe07f; border-left: 2px solid #107c10; background: #0a2a0a; }
+
+.sub-badge {
+    background: #1f3e4b;
+    border-radius: 16px;
+    padding: 3px 10px;
+    font-size: 0.7rem;
+    margin-left: 8px;
+}
+
+.detail-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.tag {
+    background: #1e3a45;
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    color: #ffecb3;
+}
+
+.btn-addfriend {
+    width: 100%;
+    background: #ffb34730;
+    border: 1px solid #ffb347;
+    padding: 8px;
+    border-radius: 50px;
+    color: #ffde9e;
+    font-weight: bold;
+    margin-top: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-addfriend:hover {
+    background: #ffb347;
+    color: #1a1a1a;
+}
+
+/* Форма добавления */
+.add-form {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 1.8rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 1px solid #ffcd7e60;
+}
+
+.form-title {
+    font-size: 1.3rem;
+    color: #ffdd99;
+    margin-bottom: 1rem;
+}
+
+.form-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.form-field {
+    flex: 1;
+    min-width: 150px;
+}
+
+.form-field input, .form-field select, .form-field textarea {
+    width: 100%;
+    padding: 10px 14px;
+    background: #0f1c26;
+    border: 1px solid #ffbc6e60;
+    border-radius: 28px;
+    color: white;
+}
+
+.form-hint {
+    font-size: 0.7rem;
+    color: #bbb;
+    margin-top: 10px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    background: #00000050;
+    border-radius: 2rem;
+    color: #ffd58c;
+}
+
+footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: #8a9bb0;
+    font-size: 0.7rem;
+}
+
+@media (max-width: 720px) {
+    body { padding: 1rem; }
+    .hero h1 { font-size: 1.6rem; }
+}
